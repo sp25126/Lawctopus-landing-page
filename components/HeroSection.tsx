@@ -167,7 +167,7 @@ export default function HeroSection() {
   }, [placed, isCompleted]);
 
   // Handle Drag End (Desktop)
-  const handleDragEnd = (event: unknown, info: PanInfo, clauseId: string) => {
+  const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo, clauseId: string) => {
     const clause = CLAUSES.find((c) => c.id === clauseId);
     if (!clause) return;
 
@@ -175,10 +175,10 @@ export default function HeroSection() {
     let pointerY = 0;
 
     // 1. Get accurate VIEWPORT-relative coordinates
-    if (event.changedTouches && event.changedTouches.length > 0) {
+    if ('changedTouches' in event && event.changedTouches.length > 0) {
       pointerX = event.changedTouches[0].clientX;
       pointerY = event.changedTouches[0].clientY;
-    } else if (event.clientX !== undefined && event.clientY !== undefined) {
+    } else if ('clientX' in event && event.clientX !== undefined && 'clientY' in event && event.clientY !== undefined) {
       pointerX = event.clientX;
       pointerY = event.clientY;
     } else {
