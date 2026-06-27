@@ -1,101 +1,197 @@
-import Image from "next/image";
+"use client";
+
+import HeroSection from "../components/HeroSection";
+import TrustBar from "../components/TrustBar";
+import CourseOverview from "../components/CourseOverview";
+import WhatYouLearn from "../components/WhatYouLearn";
+import CurriculumPipeline from "../components/CurriculumPipeline";
+import ClauseRiskScanner from "../components/ClauseRiskScanner";
+import RedlineGallery from "../components/RedlineGallery";
+import InstructorDemo from "../components/InstructorDemo";
+import Testimonials from "../components/Testimonials";
+import PricingCTA from "../components/PricingCTA";
+import FAQ from "../components/FAQ";
+import Footer from "../components/Footer";
+import Mentors from "../components/Mentors";
+import CourseStructure from "../components/CourseStructure";
+import { BookOpen, Award, FileText, UserCheck } from "lucide-react";
+import { motion } from "framer-motion";
+
+const COURSE_FEATURES = [
+  {
+    icon: <BookOpen className="w-6 h-6 text-legal-500" />,
+    title: "12-Week Intensive Curriculum",
+    description:
+      "Deep dive from basic boilerplate structures to sophisticated cross-border acquisition agreements.",
+  },
+  {
+    icon: <FileText className="w-6 h-6 text-legal-500" />,
+    title: "Practical Exercises",
+    description:
+      "Review and redline 15+ actual contracts with real-world flaws and feedback from expert attorneys.",
+  },
+  {
+    icon: <UserCheck className="w-6 h-6 text-legal-500" />,
+    title: "1-on-1 Mentorship",
+    description:
+      "Weekly office hours and personalized code/drafting reviews to sharpen your style and precision.",
+  },
+  {
+    icon: <Award className="w-6 h-6 text-legal-500" />,
+    title: "Freelancing Blueprint",
+    description:
+      "Learn how to find high-paying global clients on Upwork, LinkedIn, and compile a winning proposal portfolio.",
+  },
+];
+
+const CURRICULUM_UNITS = [
+  {
+    num: "01",
+    title: "Anatomy of a Contract",
+    topics: ["Preamble & Recitals", "Operative Clauses", "Boilerplate & Representations", "Signature Blocks"],
+  },
+  {
+    num: "02",
+    title: "Drafting Commercial Clauses",
+    topics: ["Indemnification & Caps", "Limitation of Liability", "IP Rights Allocation", "Termination Triggers"],
+  },
+  {
+    num: "03",
+    title: "Litigation-Proofing Contracts",
+    topics: ["Dispute Resolution Paths", "Governing Law Choice", "Arbitration Clauses", "Force Majeure Drafting"],
+  },
+  {
+    num: "04",
+    title: "Freelancing & Client Acquisition",
+    topics: ["Structuring Proposals", "Setting Hourly/Flat Rates", "Upwork Profile Mastery", "Managing Legal Risk"],
+  },
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className="min-h-screen relative overflow-hidden bg-legal-50">
+      {/* Background paper texture overlay */}
+      <div className="absolute inset-0 bg-paper-grain opacity-[0.03] pointer-events-none z-0" />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Hero Section — anchor: section-hero */}
+      <section id="section-hero">
+        <HeroSection />
+      </section>
+
+      {/* Trust Bar — anchor: section-trust */}
+      <section id="section-trust">
+        <TrustBar />
+      </section>
+
+      {/* Course Overview Stats — anchor: section-overview */}
+      <section id="section-overview">
+        <CourseOverview />
+      </section>
+
+      {/* What You Learn — anchor: section-skills */}
+      <section id="section-skills">
+        <WhatYouLearn />
+      </section>
+
+      {/* Curriculum Pipeline */}
+      <section id="section-pipeline">
+        <CurriculumPipeline />
+      </section>
+
+      {/* Detailed Course Structure — anchor: section-curriculum */}
+      <CourseStructure />
+
+      {/* Clause Risk Scanner — anchor: section-tool */}
+      <section id="section-tool">
+        <ClauseRiskScanner />
+      </section>
+
+      {/* Redline Gallery — anchor: section-outcomes */}
+      <section id="section-outcomes">
+        <RedlineGallery />
+      </section>
+
+      {/* Instructor Demo */}
+      <section id="section-experts">
+        <InstructorDemo />
+      </section>
+
+      {/* Mentors / Faculty */}
+      <Mentors />
+
+      {/* Testimonials — anchor: section-testimonials */}
+      <section id="section-testimonials">
+        <Testimonials />
+      </section>
+
+      {/* Pricing CTA — anchor: section-pricing */}
+      <section id="section-pricing">
+        <PricingCTA />
+      </section>
+
+      {/* FAQ — anchor: section-faq */}
+      <section id="section-faq">
+        <FAQ />
+      </section>
+
+      {/* Master Section / Academic Details — anchor: section-enroll */}
+      <section
+        id="section-enroll"
+        className="relative z-10 py-24 border-t border-legal-200/60 bg-white"
+      >
+        <div className="absolute inset-0 bg-paper-grain opacity-[0.02] pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto px-6">
+          {/* Header */}
+          <div className="text-center space-y-4 max-w-3xl mx-auto mb-20">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="font-display text-4xl md:text-5xl font-black text-legal-900 leading-[1.1] tracking-tight"
+            >
+              You just drafted 3 contract clauses. <br />
+              <span className="text-legal-500 italic font-lora font-normal">Now master the rest.</span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-lora text-legal-600 text-lg italic tracking-wide"
+            >
+              Assembling clauses is just the beginning. Our expert-level course gives you the
+              diagnostic skills and client-facing mastery required to charge premium rates.
+            </motion.p>
+          </div>
+
+          {/* Features Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
+            {COURSE_FEATURES.map((feat, index) => (
+              <motion.div
+                key={feat.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-legal-50 border border-legal-200/50 p-6 rounded-xl hover:shadow-lg transition-all duration-300 group"
+              >
+                <div className="mb-4 bg-white p-3 rounded-lg w-fit shadow-sm group-hover:scale-110 transition-transform duration-300">
+                  {feat.icon}
+                </div>
+                <h3 className="font-serif font-bold text-legal-900 text-lg mb-2">{feat.title}</h3>
+                <p className="font-sans text-legal-400 text-sm leading-relaxed">{feat.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Deleted old curriculum units, moved to dedicated CourseStructure component */}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* Global Footer */}
+      <Footer />
+    </main>
   );
 }
