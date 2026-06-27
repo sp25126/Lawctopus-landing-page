@@ -243,11 +243,11 @@ INCIDENTAL, OR CONSEQUENTIAL LOSSES (LOST REVENUES)...
                 </div>
 
                 {/* Hotspot Indicators overlaying timeline */}
-                <div className="flex justify-between px-8 text-[9px] font-mono text-slate-500 pt-1">
-                  <span>0:00</span>
-                  <span className={`cursor-pointer hover:text-legal-500 ${currentTime >= 45 ? 'text-legal-500' : ''}`} onClick={() => setCurrentTime(45)}>● Indemnity Trap (0:45)</span>
-                  <span className={`cursor-pointer hover:text-legal-500 ${currentTime >= 80 ? 'text-legal-500' : ''}`} onClick={() => setCurrentTime(80)}>● Damges Waiver (1:20)</span>
-                  <span className={`cursor-pointer hover:text-legal-500 ${currentTime >= 130 ? 'text-legal-500' : ''}`} onClick={() => setCurrentTime(130)}>● Liability Cap (2:10)</span>
+                <div className="flex justify-between px-2 sm:px-8 text-[8px] sm:text-[9px] font-mono text-slate-500 pt-1">
+                  <span className="hidden sm:inline">0:00</span>
+                  <span className={`cursor-pointer hover:text-legal-500 ${currentTime >= 45 ? 'text-legal-500' : ''}`} onClick={() => setCurrentTime(45)}>● Indemnity<span className="hidden sm:inline"> (0:45)</span></span>
+                  <span className={`cursor-pointer hover:text-legal-500 ${currentTime >= 80 ? 'text-legal-500' : ''}`} onClick={() => setCurrentTime(80)}>● Waiver<span className="hidden sm:inline"> (1:20)</span></span>
+                  <span className={`cursor-pointer hover:text-legal-500 ${currentTime >= 130 ? 'text-legal-500' : ''}`} onClick={() => setCurrentTime(130)}>● Cap<span className="hidden sm:inline"> (2:10)</span></span>
                 </div>
               </div>
 
@@ -255,20 +255,20 @@ INCIDENTAL, OR CONSEQUENTIAL LOSSES (LOST REVENUES)...
 
             {/* Credential tabs below player */}
             <div className="space-y-4">
-              <div className="flex border-b border-slate-800">
+              <div className="flex flex-wrap gap-y-2 border-b border-slate-800">
                 {(["credentials", "cases", "wins"] as const).map((tab) => (
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
-                    className={`pb-2.5 px-6 font-serif text-sm transition-all relative ${
+                    className={`pb-2.5 px-3 sm:px-6 font-serif text-xs sm:text-sm transition-all relative ${
                       activeTab === tab
                         ? "text-legal-500 font-bold border-b-2 border-legal-500"
                         : "text-slate-400 hover:text-white"
                     }`}
                   >
                     {tab === "credentials" && "Instructor Credentials"}
-                    {tab === "cases" && "Notable Work / Cases"}
-                    {tab === "wins" && "Student Cohort Wins"}
+                    {tab === "cases" && "Notable Work"}
+                    {tab === "wins" && "Cohort Wins"}
                   </button>
                 ))}
               </div>

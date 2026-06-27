@@ -257,7 +257,7 @@ interface PanelProps {
 
 function Panel({ stage, isActive, isUnlocked, userName, userEmail, unlockError, setUserName, setUserEmail, handleUnlock, contracts, setContracts, avgFee, setAvgFee, monthly, annual }: PanelProps) {
   return (
-    <div className={`cp-panel w-screen h-full flex-shrink-0 flex items-center justify-center px-8 md:px-16 lg:px-24 relative overflow-hidden ${stage.bg}`}>
+    <div className={`cp-panel w-screen h-full flex-shrink-0 flex items-center justify-center px-4 sm:px-8 md:px-16 lg:px-24 relative overflow-hidden ${stage.bg}`}>
       {/* subtle background grid */}
       <div
         className="absolute inset-0 opacity-[0.04] pointer-events-none"
@@ -265,39 +265,39 @@ function Panel({ stage, isActive, isUnlocked, userName, userEmail, unlockError, 
       />
 
       {/* ── Panel content grid ────────────────────────────────────────────── */}
-      <div className="max-w-6xl w-full grid lg:grid-cols-2 gap-12 lg:gap-20 items-center z-10">
+      <div className="max-w-6xl w-full grid lg:grid-cols-2 gap-6 sm:gap-12 lg:gap-20 items-center z-10 pt-16 sm:pt-0">
 
         {/* LEFT — narrative column */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={isActive ? { opacity: 1, x: 0 } : { opacity: 0.4, x: -20 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="space-y-6"
+          className="space-y-3 sm:space-y-6"
         >
           {/* Phase tag */}
-          <span className={`inline-block font-mono text-[11px] font-bold px-3 py-1 rounded-full ${stage.tag}`}>
+          <span className={`inline-block font-mono text-[9px] sm:text-[11px] font-bold px-2 py-0.5 sm:px-3 sm:py-1 rounded-full ${stage.tag}`}>
             {stage.phase} of 04
           </span>
 
           {/* Heading */}
           <div>
-            <h2 className={`font-serif text-5xl md:text-6xl xl:text-7xl leading-none font-bold ${stage.textBase}`}>
+            <h2 className={`font-serif text-3xl sm:text-5xl md:text-6xl xl:text-7xl leading-none font-bold ${stage.textBase}`}>
               {stage.title}
               <span className="sr-only select-none pointer-events-none" style={{ fontSize: 0 }}>{WATERMARK}</span>
             </h2>
-            <h2 className="font-serif text-5xl md:text-6xl xl:text-7xl leading-none font-bold" style={{ color: stage.accent }}>
+            <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl xl:text-7xl leading-none font-bold" style={{ color: stage.accent }}>
               {stage.subtitle}
             </h2>
           </div>
 
           {/* Description */}
-          <p className={`font-sans text-sm md:text-base leading-relaxed max-w-sm ${stage.textMuted}`}>
+          <p className={`font-sans text-xs sm:text-sm md:text-base leading-relaxed max-w-sm ${stage.textMuted}`}>
             Syllabus Phase {stage.num} covers the exact drafting standards and professional practices to construct high-quality, commercially-resilient legal deliverables.
             <span className="sr-only select-none pointer-events-none" style={{ fontSize: 0 }}>{WATERMARK}</span>
           </p>
 
           {/* Step counter */}
-          <div className="flex items-center gap-4 pt-2">
+          <div className="hidden sm:flex items-center gap-4 pt-2">
             <div className="text-7xl font-serif font-bold opacity-10 leading-none select-none" style={{ color: stage.accent }}>
               0{stage.num}
             </div>
@@ -316,7 +316,7 @@ function Panel({ stage, isActive, isUnlocked, userName, userEmail, unlockError, 
           className="relative"
         >
           {/* Folder tab */}
-          <div className="inline-flex items-center gap-2 font-mono text-[10px] font-bold px-4 py-1.5 rounded-t-lg"
+          <div className="inline-flex items-center gap-2 font-mono text-[9px] sm:text-[10px] font-bold px-3 sm:px-4 py-1.5 rounded-t-lg"
             style={{ backgroundColor: stage.accent, color: "#1e3a5f" }}>
             <FileText className="w-3 h-3" />
             {stage.folderLabel}
@@ -327,15 +327,15 @@ function Panel({ stage, isActive, isUnlocked, userName, userEmail, unlockError, 
             style={{ borderColor: stage.accent + "30" }}>
 
             {/* Card header bar */}
-            <div className="flex items-center gap-2 px-5 py-3 border-b" style={{ borderColor: stage.accent + "15" }}>
+            <div className="flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-3 border-b" style={{ borderColor: stage.accent + "15" }}>
               <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
               <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
               <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-              <span className={`font-mono text-[10px] ml-3 ${stage.textMuted}`}>LAWCTOPUS // CONTRACT_DRAFT_v{stage.num}.md</span>
+              <span className={`font-mono text-[9px] sm:text-[10px] ml-3 ${stage.textMuted}`}>LAWCTOPUS // CONTRACT_DRAFT_v{stage.num}.md</span>
             </div>
 
             {/* Card body */}
-            <div className="p-5 md:p-7 min-h-[360px] flex flex-col">
+            <div className="p-4 sm:p-5 md:p-7 min-h-[260px] sm:min-h-[360px] flex flex-col">
               {stage.id === "scale" && !isUnlocked ? (
                 /* ── Lock screen ── */
                 <div className="flex-1 flex flex-col items-center justify-center text-center gap-5">

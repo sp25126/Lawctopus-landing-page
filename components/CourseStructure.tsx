@@ -92,16 +92,16 @@ function ModuleItem({ module, index, isOpen, onToggle }: { module: typeof MODULE
         onClick={onToggle}
         className="w-full text-left px-8 py-6 flex items-center justify-between group"
       >
-        <div className="flex items-center gap-6">
-          <div className={`font-mono text-xl font-bold transition-colors duration-300 ${isOpen ? "text-legal-500" : "text-legal-300 group-hover:text-legal-400"}`}>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-6 text-left">
+          <div className={`font-mono text-lg sm:text-xl font-bold transition-colors duration-300 ${isOpen ? "text-legal-500" : "text-legal-300 group-hover:text-legal-400"}`}>
             {module.week}
           </div>
-          <div>
-            <h3 className="font-display text-2xl font-bold text-legal-900 leading-tight">{module.title}</h3>
+          <div className="pr-4 sm:pr-0">
+            <h3 className="font-display text-xl sm:text-2xl font-bold text-legal-900 leading-tight">{module.title}</h3>
             {/* Show short description only when closed */}
             <div className={!isOpen ? "block" : "hidden"}>
               <div className="pt-1">
-                <p className="font-lora text-legal-500 italic text-sm">
+                <p className="font-lora text-legal-500 italic text-xs sm:text-sm">
                   {module.description}
                 </p>
               </div>
@@ -110,8 +110,8 @@ function ModuleItem({ module, index, isOpen, onToggle }: { module: typeof MODULE
         </div>
 
         {/* Toggle Icon */}
-        <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center border-2 transition-colors transition-transform duration-300 ${isOpen ? "bg-legal-500 border-legal-500 text-white rotate-45" : "border-legal-200 text-legal-400 group-hover:border-legal-500"}`}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
+        <div className={`flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center border-2 transition-colors transition-transform duration-300 ${isOpen ? "bg-legal-500 border-legal-500 text-white rotate-45" : "border-legal-200 text-legal-400 group-hover:border-legal-500"}`}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 sm:w-5 sm:h-5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
           </svg>
         </div>
@@ -119,8 +119,8 @@ function ModuleItem({ module, index, isOpen, onToggle }: { module: typeof MODULE
 
       {/* Expanded Content */}
       <div className={isOpen ? "block" : "hidden"}>
-        <div className="px-8 pb-8 pt-4 pl-[112px]"> {/* Aligned with title text */}
-          <p className="font-lora text-legal-600 text-base leading-relaxed mb-6">
+        <div className="px-6 sm:px-8 pb-6 sm:pb-8 pt-2 sm:pt-4 sm:pl-[112px]"> {/* Aligned with title text on desktop */}
+          <p className="font-lora text-legal-600 text-sm sm:text-base leading-relaxed mb-6">
             {module.description}
           </p>
           
