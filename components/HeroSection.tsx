@@ -167,7 +167,7 @@ export default function HeroSection() {
   }, [placed, isCompleted]);
 
   // Handle Drag End (Desktop)
-  const handleDragEnd = (event: any, info: PanInfo, clauseId: string) => {
+  const handleDragEnd = (event: unknown, info: PanInfo, clauseId: string) => {
     const clause = CLAUSES.find((c) => c.id === clauseId);
     if (!clause) return;
 
@@ -276,7 +276,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-paper-grain opacity-[0.04] pointer-events-none z-0" />
       
       {/* Oscilloscope SVG */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-0 overflow-hidden flex items-center justify-center">
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-0 overflow-hidden flex items-center justify-center translate-z-0 will-change-transform">
         <svg className="w-full h-full max-h-[800px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 600" fill="none">
           <path 
             d="M0,300 C150,280 200,450 350,450 C500,450 550,150 700,150 C850,150 900,400 1050,400 C1200,400 1250,290 1440,300" 
@@ -345,7 +345,7 @@ export default function HeroSection() {
 
           {/* Interactive Simulator Column */}
           <div className="lg:col-span-7" id="simulator-widget">
-            <div className="bg-white border-2 border-legal-200 rounded-xl p-5 md:p-8 shadow-2xl relative overflow-hidden flex flex-col">
+            <div className="bg-white border-2 border-legal-200 rounded-xl p-5 md:p-8 shadow-xl relative overflow-hidden flex flex-col translate-z-0">
               {/* Paper texture overlay specifically on widget */}
               <div className="absolute inset-0 bg-paper-grain opacity-[0.02] pointer-events-none" />
 
@@ -614,7 +614,7 @@ export default function HeroSection() {
                         className={`px-4 py-3 rounded-xl border text-[11px] sm:text-xs font-mono cursor-grab shadow-sm transition-all select-none ${
                           isSelected 
                             ? "bg-legal-900 text-white border-legal-800 scale-[1.03] shadow-[0_8px_30px_rgb(0,0,0,0.12)] ring-2 ring-legal-500 ring-offset-2 font-bold" 
-                            : "bg-white/80 backdrop-blur-sm text-legal-700 hover:text-legal-900 border-legal-200/80 hover:border-legal-300 hover:shadow-md hover:bg-white"
+                            : "bg-white/95 text-legal-700 hover:text-legal-900 border-legal-200/80 hover:border-legal-300 hover:shadow-md hover:bg-white"
                         }`}
                       >
                         <span className="font-bold mr-1.5">{clause.label}</span>
@@ -631,7 +631,7 @@ export default function HeroSection() {
 
       {/* Sticky Bottom Bar */}
       {mounted && (
-        <div className="fixed bottom-0 left-0 right-0 bg-legal-900 border-t border-legal-800 text-white py-3.5 px-6 z-50 shadow-2xl flex flex-col md:flex-row justify-between items-center gap-3">
+        <div className="fixed bottom-0 left-0 right-0 bg-legal-900 border-t border-legal-800 text-white py-3.5 px-6 z-50 shadow-lg flex flex-col md:flex-row justify-between items-center gap-3 translate-z-0 will-change-transform">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 w-full md:w-auto justify-center md:justify-start">
             <div className="flex items-center space-x-2 text-xs font-mono text-legal-300">
               <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />

@@ -29,10 +29,11 @@ export default function SmoothScrollProvider({
 
   useEffect(() => {
     const lenis = new Lenis({
-      lerp: 0.1,
+      lerp: 0.05,            // Lower value = smoother, more cinematic floating effect
       smoothWheel: true,
-      wheelMultiplier: 0.8,
+      wheelMultiplier: 1.2,  // Make mouse wheels slightly more responsive to compensate for the extreme smoothness
       infinite: false,
+      touchMultiplier: 2,    // Smooth out trackpad/touch interactions
     });
 
     lenisRef.current = lenis;

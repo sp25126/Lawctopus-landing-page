@@ -44,29 +44,6 @@ const COURSE_FEATURES = [
   },
 ];
 
-const CURRICULUM_UNITS = [
-  {
-    num: "01",
-    title: "Anatomy of a Contract",
-    topics: ["Preamble & Recitals", "Operative Clauses", "Boilerplate & Representations", "Signature Blocks"],
-  },
-  {
-    num: "02",
-    title: "Drafting Commercial Clauses",
-    topics: ["Indemnification & Caps", "Limitation of Liability", "IP Rights Allocation", "Termination Triggers"],
-  },
-  {
-    num: "03",
-    title: "Litigation-Proofing Contracts",
-    topics: ["Dispute Resolution Paths", "Governing Law Choice", "Arbitration Clauses", "Force Majeure Drafting"],
-  },
-  {
-    num: "04",
-    title: "Freelancing & Client Acquisition",
-    topics: ["Structuring Proposals", "Setting Hourly/Flat Rates", "Upwork Profile Mastery", "Managing Legal Risk"],
-  },
-];
-
 export default function Home() {
   return (
     <main className="min-h-screen relative overflow-hidden bg-legal-50">
